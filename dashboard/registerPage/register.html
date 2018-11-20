@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html ng-app="reg1">
+<head>
+	<title>Registetion</title>
+      <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Hind+Madurai:600|Teko:400,500" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="reg.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+</head>
+<body>
+  
+      <div  ng-controller="registerform" ng-init="show()"> 
+	<div class="main"  >
+		
+	
+       
+
+          <form class="regform" name="register" novalidate   >
+
+            <input type="text"  name="fname" placeholder="First Name"  ng-model="firstName" ng-required="true"/>
+            <div ng-show="register.fname.$touched && register.fname.$invalid">
+                  <small class="error" >First name feild empty</small>
+            </div>
+            <input type="text"  name="lname" placeholder="Last Name" ng-model="lastname" ng-required="true">
+
+            <div ng-show="register.lname.$touched && register.lname.$invalid">
+                  <small class="error" >Last name feild empty</small>
+            </div>
+            <input type="email"  name="email" placeholder="Email" ng-model="email" ng-required="true"><br>
+
+
+            <div ng-show="register.email.$touched && register.email.$invalid">
+                  <small class="error" >enter valid email</small>
+            </div>
+            <input type="text"  name="phone" placeholder="Phone Number" ng-model="phone" ng-required="true"><br>
+
+            <div ng-show="register.phone.$touched && register.phone.$invalid">
+                  <small class="error" >enter valid phone number</small>
+            </div>
+
+
+
+
+            <input type="text"  name="username" placeholder="User Name" ng-model="username" ng-required="true">
+
+            <div ng-show="register.username.$touched && register.username.$invalid">
+                  <small class="error" >Username feild empty</small>
+            </div>
+            <input type="Password"  name="pass" placeholder="Password" ng-model="Password" ng-required="true">
+
+            <div ng-show="register.pass.$touched && register.pass.$invalid">
+                  <small class="error" >Password feild empty</small>
+            </div>
+            <input type="Password"  name="repass" placeholder="Re-enter Password" ng-model="rePassword" ng-required="true">
+            <div ng-show="register.repass.$touched && register.repass.$invalid">
+                  <small class="error" > feild empty</small>
+            </div>
+            <small class="error" >{{err}}</small><br>
+            <small class="error" >{{name}}</small><br><br>
+            
+
+
+
+       
+
+       
+
+       <div class="bu" name="butt">
+            
+        <input type="submit" class="button" value="Register"   ng-disabled="register.$invalid" ng-click="ch()" />
+
+
+       </div><br><br>
+        
+
+      	
+       
+
+
+
+
+
+       
+
+   
+
+
+
+	</div>
+
+
+      <div class="pic" >
+             <table>
+              <tr>
+                    <th>FIRST NAME</th>
+                    <th>LAST NAME</th>
+                    <th>EMAIL</th>
+                    <th>PHONE NUMBER</th>
+
+              </tr> 
+              <tr ng-repeat="x in names">
+
+                  <td>{{x.FirstName}}</td>
+                  <td>{{x.LastName}}</td>
+                  <td>{{x.Email}}</td>
+                  <td>{{x.PhoneNumber}}</td>
+                    
+
+              </tr>    
+
+
+             </table>
+       </div>
+
+
+       </form>
+ </div>
+
+
+
+
+
+<script>
+	
+var app=angular.module("reg1",[]);
+app.controller("registerform",function($scope,$http){
+
+$scope.ch=function(){
+
+	if($scope.Password==$scope.rePassword)
+	{
+		$scope.display();
+	}
+	else
+	{
+      $scope.err='your password and Re-password did not match';
+
+	}
+
+
+};
+
+
+$scope.display=function(){
+
+
+
+
+
+
+
+
+$http.post("regselect.php", {
+    'username':$scope.username,
+    'Password':$scope.Password,
+    })       
+
+.then(function(response){
+ 
+
+    
+    var cd =response.data;
+
+    if(cd=='"fales"')
+    {
+
+      $scope.name="cannot use this username and password";
+    }
+    else
+    {
+
+      $scope.insert();
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+ }) 
+
+
+
+
+}
+
+
+$scope.insert=function(){
+
+
+
+
+
+$http.post("insert.php", {
+      'firstName':$scope.firstName,
+      'lastname':$scope.lastname,
+      'email':$scope.email,
+      'phone':$scope.phone,
+    'username':$scope.username,
+    'Password':$scope.Password,
+    })       
+
+.then(function(response){
+ 
+     console.log("Data Inserted Successfully");
+
+     $scope.name=response.data;
+
+     $scope.show();
+
+
+ }) 
+
+
+
+
+
+
+
+
+
+}
+
+
+$scope.show=function(){
+
+
+$http.get("selectall.php")
+    .then(function (response) {
+      $scope.names =response.data.records;
+
+});
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+});
+
+
+</script>
+
+
+	
+</body>
+</html>

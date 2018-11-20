@@ -1,0 +1,307 @@
+body{
+
+
+background-color: #E2E5E3;
+background-image: url("image/user.jpg");
+
+font-family: 'EB Garamond', serif;
+font-family: 'Teko', sans-serif;
+font-family: 'Hind Madurai', sans-serif;
+
+
+
+}
+
+
+.main{
+
+padding: 10px;
+margin-left: 90px;
+margin-right: auto;
+width:40%;
+height: auto;
+background-color:white;
+margin-top: 24px;
+
+text-align: center;
+float: left;
+
+
+
+}
+.regform{
+
+
+padding: 30px;
+
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #727574 ;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    font-family: 'EB Garamond', serif;
+font-family: 'Teko', sans-serif;
+font-family: 'Hind Madurai', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input[type=text]:focus {
+    border: 1px solid #1E6F41;
+}
+
+input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #727574 ;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+   font-family: 'EB Garamond', serif;
+font-family: 'Teko', sans-serif;
+font-family: 'Hind Madurai', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input[type=password]:focus {
+    border: 1px solid #1E6F41    ;
+}
+
+
+input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #727574 ;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+
+
+    font-family: 'EB Garamond', serif;
+font-family: 'Teko', sans-serif;
+font-family: 'Hind Madurai', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+
+
+
+}
+
+input[type=email]:focus {
+    border: 1px solid #1E6F41    ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color:#7F8381  ;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 17px;
+    width: 17px;
+    background-color: #313232    ;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+.bu{
+
+
+text-align: center;
+
+
+
+
+
+}
+
+
+
+
+.button {
+    background-color: #47B476  ; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    width: 40%;
+
+    font-family: 'EB Garamond', serif;
+font-family: 'Teko', sans-serif;
+font-family: 'Hind Madurai', sans-serif;
+    font-weight: bold;
+    
+    
+}
+
+
+.button:hover {
+    background-color: #575A58 ;
+    color: white;
+}
+
+.pic{
+
+   
+   width:45.1200%;
+   float: right;
+
+   background-color:white;
+
+
+    padding: 10px;
+    margin-left: auto;
+     margin-right: 25px;
+     height: auto;
+     background-color:white;
+     margin-top: 23px;
+     
+     text-align: center;
+     
+
+ 
+   
+   
+   
+   /**/
+   
+
+   text-align: center;
+
+
+}
+
+input.ng-invalid.ng-touched
+{
+
+    border: 2px solid #CD6155;
+
+}
+.error{
+
+  color:#CD6155;
+  font-size: 16px;
+  text-align: left;
+
+
+
+
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+    font-weight: bold;
+    font-family: 'EB Garamond', serif;
+font-family: 'Teko', sans-serif;
+font-family: 'Hind Madurai', sans-serif;
+     
+
+
+}
+
+tr:nth-child(even){background-color: #D5DBDB}
+
+th {
+    background-color: #424949;
+    color: white;
+}
+
+
+
+
+
+
